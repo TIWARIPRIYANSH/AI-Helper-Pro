@@ -1,27 +1,22 @@
 {
   "manifest_version": 3,
   "name": "AI Helper Pro",
-  "version": "2.1",
-  "description": "Extracts text, passages, or images to get answers.",
-
+  "version": "2.2",
+  "description": "Extracts content to get answers with a hotkey.",
   "permissions": [
     "activeTab",
     "storage",
     "scripting"
   ],
-
   "host_permissions": [
     "*://generativelanguage.googleapis.com/*"
   ],
-
   "action": {
     "default_popup": "popup.html"
   },
-
   "background": {
     "service_worker": "background.js"
   },
-
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -32,7 +27,6 @@
       "all_frames": true
     }
   ],
-
   "web_accessible_resources": [
     {
       "resources": [
@@ -42,10 +36,12 @@
       "matches": ["<all_urls>"]
     }
   ],
-
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+  "commands": {
+    "find_answer_shortcut": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A"
+      },
+      "description": "Find the answer for the current question"
+    }
   }
 }
