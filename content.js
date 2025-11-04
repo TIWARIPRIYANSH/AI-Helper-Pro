@@ -1,14 +1,14 @@
-// A helper function that waits for an element to appear in the DOM
+
 function waitForElement(selector, timeout = 3000) {
   return new Promise((resolve, reject) => {
-    // Try to find it immediately
+   
     const element = document.querySelector(selector);
     if (element) {
       resolve(element);
       return;
     }
 
-    // If not found, set up an observer or interval
+   
     const interval = setInterval(() => {
       const element = document.querySelector(selector);
       if (element) {
@@ -16,11 +16,11 @@ function waitForElement(selector, timeout = 3000) {
         clearTimeout(timer);
         resolve(element);
       }
-    }, 200); // Check every 200 milliseconds
+    }, 200); 
 
     const timer = setTimeout(() => {
       clearInterval(interval);
-      // Don't reject, just resolve with null so we know it wasn't found in this frame
+   
       resolve(null); 
     }, timeout);
   });
@@ -28,15 +28,15 @@ function waitForElement(selector, timeout = 3000) {
 
 
 async function findTargetData() {
-  // Use our new function to wait for the main container to exist
+
   const mainContainer = await waitForElement('#TopContentDiv');
 
-  // If the container doesn't appear after our timeout, we know this isn't the right frame
+  
   if (!mainContainer) {
     return { type: 'nothing_found' };
   }
 
-  // Once the container is found, the rest of the logic can run
+
   let passageText = '';
   let questionText = '';
   let imageSrc = null;
@@ -71,10 +71,11 @@ async function findTargetData() {
   }
 }
 
-// The message listener now needs to handle the async function
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "findContent") {
     findTargetData().then(sendResponse);
     return true;
   }
+
 });

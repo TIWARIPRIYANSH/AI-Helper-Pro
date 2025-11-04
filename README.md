@@ -57,7 +57,8 @@ Before installing, you must add your API key.
 5.  The extension's icon will appear in your Chrome toolbar, ready to use.
 
 -----
-
+NOTE -> DON'T USE MUCH FOR IMAGE TYPE QUESTIONS , IT WILL LOAD YOUR API CALLS WITH LIMIT . 
 ## ⚠️ Disclaimer
+
 
 This tool is for **educational and proof-of-concept purposes only**. Using such a tool to cheat on tests, exams, or any form of assessment is a violation of academic integrity and the terms of service of most platforms. The creator of this repository is not responsible for any misuse of this software.
